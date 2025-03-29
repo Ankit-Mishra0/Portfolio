@@ -12,7 +12,7 @@ const projectsData = [
     description:
       "This is my portfolio website, where I showcase my projects and skills.",
     tag: ["ALL", "Completed"],
-    gitUrl: "https://github.com/Ankit-Mishra0/MY-GOV-app",
+    gitUrl: "https://github.com/Ankit-Mishra0/Portfolio",
   },
   {
     id: 2,
@@ -25,23 +25,34 @@ const projectsData = [
   },
 ];
 const ProjectSection = () => {
-    const [tag, setTag] = useState("ALL");
-    const handleChange = (newTag) => {
-        setTag(newTag);
-    };
-    const filteredProjects = projectsData.filter((project) =>
-        project.tag.includes(tag)
-
-    );
+  const [tag, setTag] = useState("ALL");
+  const handleChange = (newTag) => {
+    setTag(newTag);
+  };
+  const filteredProjects = projectsData.filter((project) =>
+    project.tag.includes(tag)
+  );
   return (
-    <div id="projects" >
+    <div id="projects">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-4">
         My Projects
       </h2>
       <div className="text-white flex flex-row justify-center gap-2 py-6">
-        <ProjectsTags onClick={handleChange} name="ALL" isSelected={tag==="ALL"} />
-        <ProjectsTags onClick={handleChange} name="Completed" isSelected={tag==="Completed"} />
-        <ProjectsTags onClick={handleChange} name="Still Working" isSelected={tag==="Still Working"} />
+        <ProjectsTags
+          onClick={handleChange}
+          name="ALL"
+          isSelected={tag === "ALL"}
+        />
+        <ProjectsTags
+          onClick={handleChange}
+          name="Completed"
+          isSelected={tag === "Completed"}
+        />
+        <ProjectsTags
+          onClick={handleChange}
+          name="Still Working"
+          isSelected={tag === "Still Working"}
+        />
       </div>
       <div className="grid md:grid-cols-3 gap-12">
         {filteredProjects.map((project) => (
